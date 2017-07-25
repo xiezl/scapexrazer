@@ -45,12 +45,12 @@
               ## Motivation
 
               - User activities
-              - High volume
-              - High availability
-              - online shopping
-              - mobile applications
-              - health care
-              - ...
+                - High volume
+                - High availability
+                  - online shopping
+                  - mobile applications
+                  - health care
+                  - ...
             </textarea>
           </section>
           <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
@@ -58,10 +58,10 @@
               ## Motivation
 
               - Two factors affecting user behavior
-              - Aging
-              - Social changes
-              - New versions of application
-              - Modification in website layout
+                - Aging
+                - Social changes
+                  - New versions of application
+                  - Modification in website layout
             </textarea>
           </section>
           <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
@@ -69,39 +69,71 @@
               ## Motivation
 
               - Cohort analysis:
-              - Access the impact of aging on human behavior in a changing society
-              - Perfect for analyzing user behavior
+                - Access the impact of aging on human behavior in a changing society
+                - Perfect for analyzing user behavior
             </textarea>
           </section>
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
-            ## Cohort analysis: Background
+            ## Background
               - Birth of users
+              - Cohort definition
+              <aside class="notes" data-markdown>
+                ## Birth of Users: 
                 - A user is considered born when performing a certain event for the first time.
-              - Cohort definition:
+
+                ## Cohort definition:
                 - A group of users/human who share some common characteristics when they were born.
                 - Compute the aggregation for each (cohort, age) group.
-          </textarea>
-        </section>
-        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
-          <textarea data-template>
-            ## Cohort analysis: Background
+              </aside>    
               - Steps
                 - Group users into cohorts
                 - Determine the age for each activity of each user
           </textarea>
         </section>
-        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+        <section data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <p data-markdown> ## An example </p>
+          <div id="left">
+            <p data-markdown>
+              - Retention analysis
+                - Cohort by birth time
+                - Age by week
+                - Compute retention
+            </p>
+          </div>
+          <div id="right">
+            <img src="img/table.png"> </img>
+         </div>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; font-size: 80%">
           <textarea data-template>
+            ## SQL-based approach
+
+            - Algorithm
+              - Locate the birth time with respect to the birth event for each user
+              - Find the birth tuples (one join required)
+              - Find the age tuples (one join required)
+              - Compute the cohort size
+              - Compute the aggregated value (one join required)
+            - Disadvantage
+              - Extremely inefficient (three joins)
+              - Lengthy and error-prone
           </textarea>
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
+            ## SQL-based approach example
+
           </textarea>
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
+            ## SCAPE 
+
+            - Shentilium Cohort Analysis Processing Engine
+              - Customized storage layout
+              - Query evaluation
           </textarea>
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
