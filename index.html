@@ -25,7 +25,7 @@
     <div class="reveal">
       <div class="slides">
         <section data-background-image="img/bg/3.png" data-background-size="contain">
-          <h2> Cohort Query </h2> <h2> Processing </h2>
+          <h2 id="title"> Cohort Query </h2> <h2 id="title"> Processing </h2>
           <p> Part I: Traditional Cohort Analysis </p>
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
@@ -94,7 +94,7 @@
         </section>
         <section data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <p data-markdown> ## An example </p>
-          <div id="left">
+          <div class="left-panel">
             <p data-markdown>
               - Retention analysis
                 - Cohort by birth time
@@ -102,11 +102,11 @@
                 - Compute retention
             </p>
           </div>
-          <div id="right">
+          <div class="right-panel">
             <img src="img/table.png"> </img>
          </div>
         </section>
-        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; font-size: 80%">
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; ">
           <textarea data-template>
             ## SQL-based approach
 
@@ -136,23 +136,188 @@
               - Query evaluation
           </textarea>
         </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; ">
+          <textarea data-template>
+            ## Customized storage layout
+
+            - Data schema
+              - A flat table with each row recording a single user activity
+              - Activities of each user are clustered together and sorted by time
+
+            - Hierarchical storage
+              - Horizontally split into chunks
+              - Each chunk is stored in a columnar way
+              - Various compression techniques
+              - Achieve 12x compression ratio
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; ">
+          <textarea data-template>
+            ## Cohort query evaluation
+
+            - For each user,
+              - Find the birth time when the first birth event is performed
+              - Determine the host cohort based on the first birth event
+              - Select activities of interest which happen after the birth time
+              - Determine the age of each selected activity
+              - Update the metric at each age for the host cohort
+            - Advantages
+              - Each user is processed independently; no join needed
+              - Most operations are converted to SCAN
+              - Fast value retrieval without decompression
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; font-size: 80%">
+          <textarea data-template>
+            ## Performance analysis: Queries
+
+            - Q1: For each country launch cohort, report the number of retained    users who did at least one action since they first launched the game.
+            - Q2: For each country launch cohort born in a specific date range, report the number of retained users who did at least one action since they first launched the game.
+            - Q3: For each country shop cohort, report the average gold they spent in shopping since they made the first shopped in the game.
+            - Q4: For each country shop cohort, report the average gold they spent in shopping in their birth country where they were born with respect to the dwarf role in a given date range.
+
+          </textarea>
+        </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
+            ## Performance analysis: Results
+
+            <img src="img/exp1.png"> </img>
           </textarea>
+        </section>
+        <section data-background-image="img/bg/4.png" data-background-size="contain">
+          <h2 id="title"> Cohort Query </h2> <h2 id="title"> Processing </h2>
+          <p> Part II: Generalized Cohort Analysis </p>
+        </section>
+        <section data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Outline
+            - Motivation
+            - Generalized Cohort Analysis
+              - Birth Sequence
+              - Age by
+            - Performance Analysis
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Motivation
+            - Multiple birth events can characterize cohort better
+            - More ways of measuring cohort behavior are needed
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; ">
+          <textarea data-template>
+            ## Birth Sequence
+              - A list of birth events
+                - Each with a set of predicates
+                - A range of the number of occurrences
+                - A time window
+              - Examples
+                - The first purchase together with all adding-to-carts performed beforehand
+                - All purchases within the initial week (or within the first 100 events)
+                - All purchases and adding-to-carts within the initial week
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Birth Sequence
+              - Birth attribute
+                - A aggregated function over all occurrences of a certain birth event
+                - Cohorts are now determined by birth attributes, instead of the attributes of the birth tuple
+                - Cohorts generated as such are more diversified and representative
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Birth Sequence: example
+              - All purchases and adding-to-carts within the initial week
+              - Birth sequence
+                - Birth events: purchase and adding-to-cart
+                - Time window: the initial week
+              - Birth attributes
+                - Number of adding-to-cart
+                - Number of purchases
+                - Average spending
+                - … 
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Age definition
+              - Temporal definition
+                - E.g., day, week, month
+              - Event-based definition
+               - Age n corresponds to the n-th qualified occurrence of a certain event
+              - Dimension-based definition
+               - The value of some dimensions is a step function of time, e.g., session, role level, gaming map, salary
+               - Each change of the value can hence be regarded as an increment in age
+
+          </textarea>
+        </section>
+        <section data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <p data-markdown> ## Generalized cohort analysis example 1 </p>
+          <div class="left-panel">
+            <p data-markdown>
+              - Birth sequence: a certain number of purchase event
+              - Age by week
+              - Retention is computed for cohorts consisting of users who having performed a certain number of purchases
+            </p>
+          </div>
+          <div class="right-panel">
+            <img src="img/table2.png"> </img>
+          </div>
+        </section>
+        <section  data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <p data-markdown> ## Generalized cohort analysis example 2 </p>
+          <div class="left-panel">
+            <p data-markdown>
+              - An empty birth sequence
+              - Age by the number of purchases performed
+              - Compute the average time duration between the current purchase and the last one
+            </p>
+          </div>
+          <div class="right-panel">
+            <img src="img/table3.png"> </img>
+          </div>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## SCAPE processing engine
+              - For each user
+                - check whether it is qualified with respect to the birth sequence, and determine its host cohort 
+                - determine the age for each activity performed thereafter
+                - select activities at each age to measure cohort behavior
+                - and finally update the result for that age
+          </textarea>
+        </section>
+        <section  data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <p data-markdown> ## SCAPE Performance </p>
+          <div class="left-panel">
+            <p data-markdown>
+              - Scape is up to three order faster than database approaches, which have been adopted in almost all of our competitors
+            </p>
+          </div>
+          <div class="right-panel">
+            <img src="img/exp2.jpg"> </img>
+          </div>
+        </section>
+        <section  data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <p data-markdown> ## SCAPE Performance </p>
+          <div class="left-panel">
+            <p data-markdown>
+              - Processing time is linear with the size of dataset, showing a high scalability
+            </p>
+          </div>
+          <div class="right-panel">
+            <img src="img/exp3.jpg"> </img>
+          </div>
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
           </textarea>
         </section>
-        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
-          <textarea data-template>
-          </textarea>
-        </section>
-        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
-          <textarea data-template>
-          </textarea>
-        </section>
-      </div>
+        </div>
     </div>
 
     <script src="lib/js/head.min.js"></script>
