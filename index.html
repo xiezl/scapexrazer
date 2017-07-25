@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>reveal.js</title>
+    <title>SCAPE slides</title>
 
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/customtheme.css">
@@ -24,8 +24,102 @@
   <body>
     <div class="reveal">
       <div class="slides">
-        <section data-background-image="img/bg/3.png" data-background-size="contain">Slide 1</section>
-        <section data-background-image="img/bg/4.png" data-background-size="contain">Slide 2</section>
+        <section data-background-image="img/bg/3.png" data-background-size="contain">
+          <h2> Cohort Query </h2> <h2> Processing </h2>
+          <p> Part I: Traditional Cohort Analysis </p>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Outline
+
+            - Motivation
+            - Cohort analysis
+            - SQL-based approaches
+            - COHANA: COHort ANAlytics engine
+            - Performance analysis
+          </textarea>
+        </section>
+        <section>
+          <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+            <textarea data-template>
+              ## Motivation
+
+              - User activities
+              - High volume
+              - High availability
+              - online shopping
+              - mobile applications
+              - health care
+              - ...
+            </textarea>
+          </section>
+          <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+            <textarea data-template>
+              ## Motivation
+
+              - Two factors affecting user behavior
+              - Aging
+              - Social changes
+              - New versions of application
+              - Modification in website layout
+            </textarea>
+          </section>
+          <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+            <textarea data-template>
+              ## Motivation
+
+              - Cohort analysis:
+              - Access the impact of aging on human behavior in a changing society
+              - Perfect for analyzing user behavior
+            </textarea>
+          </section>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Cohort analysis: Background
+              - Birth of users
+                - A user is considered born when performing a certain event for the first time.
+              - Cohort definition:
+                - A group of users/human who share some common characteristics when they were born.
+                - Compute the aggregation for each (cohort, age) group.
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+            ## Cohort analysis: Background
+              - Steps
+                - Group users into cohorts
+                - Determine the age for each activity of each user
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
+        <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
+          <textarea data-template>
+          </textarea>
+        </section>
       </div>
     </div>
 
@@ -37,6 +131,9 @@
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
+        markdown: {
+          smartypants: true
+        },
         dependencies: [
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },
