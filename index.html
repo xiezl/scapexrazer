@@ -34,11 +34,11 @@
 
         <section>
           <section data-background-image="img/bg/bg.png" data-background-size="contain" >
-            <p data-markdown style="text-align: left;">
-              ## Motivation
-              - User activities 
-                - High volume <!-- .element: class="fragment" data-fragment-index="1" -->
-                - High availability <!-- .element: class="fragment" data-fragment-index="1" -->
+			<p data-markdown style="text-align: left;">   ## Motivation </p>
+            <p data-markdown style="text-align: left;" class="fragment" data-fragment-index="4">
+              - User activities <!-- .element: class="fragment" data-fragment-index="4" -->
+                - High volume 
+                - High availability 
             </p>
 			<aside class="notes" data-markdown>
 				- High availability
@@ -134,12 +134,12 @@
         </section>
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left; ">
           <textarea data-template>
-            ## Birth Sequence
-              - A list of birth events
+            ## Birth Sequence 
+              - A list of birth events <!-- .element: class="fragment" data-fragment-index="1" -->
                 - Each with a set of predicates
                 - A range of the number of occurrences
                 - A time window
-              - Examples
+              - Examples <!-- .element: class="fragment" data-fragment-index="2" -->
                 - The first purchase together with all adding-to-carts performed beforehand
                 - All purchases within the initial week (or within the first 100 events)
                 - All purchases and adding-to-carts within the initial week
@@ -158,10 +158,10 @@
           <textarea data-template>
             ## Birth Sequence: example
               - All purchases and adding-to-carts within the initial week
-              - Birth sequence
+              - Birth sequence <!-- .element: class="fragment" data-fragment-index="1" -->
                 - Birth events: purchase and adding-to-cart
                 - Time window: the initial week
-              - Birth attributes
+              - Birth attributes <!-- .element: class="fragment" data-fragment-index="2" -->
                 - Number of adding-to-cart
                 - Number of purchases
                 - Average spending
@@ -171,11 +171,11 @@
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
             ## Age definition
-              - Temporal definition
+              - Temporal definition <!-- .element: class="fragment" data-fragment-index="1" -->
                 - E.g., day, week, month
-              - Event-based definition
+              - Event-based definition <!-- .element: class="fragment" data-fragment-index="2" -->
                - Age n corresponds to the n-th qualified occurrence of a certain event
-              - Dimension-based definition
+              - Dimension-based definition <!-- .element: class="fragment" data-fragment-index="3" -->
                - The value of some dimensions is a step function of time, e.g., session, role level, gaming map, salary
                - Each change of the value can hence be regarded as an increment in age
 
@@ -216,7 +216,7 @@
           <textarea data-template>
             ## SCAPE 
             - Shentilium Cohort Analysis Processing Engine
-              - Customized storage layout
+              - Customized storage layout 
               - Traditional Cohort Analysis processing
               - General Cohort Analysis processing
           </textarea>
@@ -224,10 +224,10 @@
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left; ">
           <textarea data-template>
             ## Customized storage layout
-            - Data schema
+            - Data schema <!-- .element: class="fragment" data-fragment-index="1" -->
               - A flat table with each row recording a single user activity
               - Activities of each user are clustered together and sorted by time
-            - Hierarchical storage
+            - Hierarchical storage <!-- .element: class="fragment" data-fragment-index="2" -->
               - Horizontally split into chunks
               - Each chunk is stored in a columnar way
               - Various compression techniques
@@ -237,13 +237,13 @@
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left; ">
           <textarea data-template>
             ## cohort analysis processing 
-            - For each user,
-              - Find the birth time
-              - Determine the host cohort
-              - Select activities of interest
-              - Determine the age of each selected activity
-              - Update the metric at each age
-            - Advantages
+            - For each user
+              - Find the birth time <!-- .element: class="fragment" data-fragment-index="1" -->
+              - Determine the host cohort <!-- .element: class="fragment" data-fragment-index="2" -->
+              - Select activities of interest <!-- .element: class="fragment" data-fragment-index="3" -->
+              - Determine the age of each selected activity <!-- .element: class="fragment" data-fragment-index="4" -->
+              - Update the metric at each age <!-- .element: class="fragment" data-fragment-index="5" -->
+            - Advantages <!-- .element: class="fragment" data-fragment-index="6" -->
               - Each user is processed independently; no join needed
               - Most operations are converted to SCAN
               - Fast value retrieval without decompression
