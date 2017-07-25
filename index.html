@@ -99,7 +99,7 @@
             </p>
           </div>
           <div class="right-panel">
-            <img src="img/table.png"> </img>
+            <img src="img/table.png" class="plain"> </img>
          </div>
         </section>
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left; ">
@@ -117,11 +117,10 @@
               - Lengthy and error-prone
           </textarea>
         </section>
-        <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
-          <textarea data-template>
-            ## SQL-based approach example
-
-          </textarea>
+        <section data-background-image="img/bg/bg.png" data-background-size="contain">
+          <p data-markdown style="text-align: left;"> ## SQL-based approach example </p>
+		  
+          <img src="img/sql.png" class="plain"> </img>
         </section>
         
         <section data-background-image="img/bg/bg.png" data-background-size="contain">
@@ -195,14 +194,14 @@
         <section data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
           <p data-markdown> ## Generalized cohort analysis example 1 </p>
           <div class="left-panel">
-            <p data-markdown>
+            <p data-markdown style="font-size: 95%">
               - Birth sequence: a certain number of purchase event
               - Age by week
               - Retention is computed for cohorts consisting of users who having performed a certain number of purchases
             </p>
           </div>
           <div class="right-panel">
-            <img src="img/table2.png"> </img>
+            <img src="img/table2.png" class="plain plain-table" style="margin-top: 25%"> </img>
           </div>
         </section>
         <section  data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
@@ -215,7 +214,7 @@
             </p>
           </div>
           <div class="right-panel">
-            <img src="img/table3.png"> </img>
+            <img src="img/table3.png"  class="plain plain-table" style="margin-top: 25%"> </img>
           </div>
         </section>
         <section data-background-image="img/bg/3.png" data-background-size="contain">
@@ -272,56 +271,46 @@
 
           </textarea>
         </section>
-        <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left; font-size: 80%">
-          <textarea data-template>
-            ## Performance analysis: Queries
 
-            - Q1: For each country launch cohort, report the number of retained    users who did at least one action since they first launched the game.
-            - Q2: For each country launch cohort born in a specific date range, report the number of retained users who did at least one action since they first launched the game.
-            - Q3: For each country shop cohort, report the average gold they spent in shopping since they made the first shopped in the game.
-            - Q4: For each country shop cohort, report the average gold they spent in shopping in their birth country where they were born with respect to the dwarf role in a given date range.
-
-          </textarea>
-        </section>
-        <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
-          <textarea data-template>
-            ## Performance analysis: Results
-
-            <img src="img/exp1.png"> </img>
-          </textarea>
+        <section  data-background-image="img/bg/bg.png" data-background-size="contain">
+          <p data-markdown style="text-align: left;"> ## SCAPE Performance: </p>
+          <p data-markdown style="text-align: left;"> ## Traditional Cohort Query </p>
+		  <img src="img/exp1.png"  class="plain"> </img>
+		  <aside data-markdown class="notes">
+			- Q1: For each country launch cohort, report the number of retained    users who did at least one action since they first launched the game.
+			- Q2: For each country launch cohort born in a specific date range, report the number of retained users who did at least one action since they first launched the game.
+			- Q3: For each country shop cohort, report the average gold they spent in shopping since they made the first shopped in the game.
+			- Q4: For each country shop cohort, report the average gold they spent in shopping in their birth country where they were born with respect to the dwarf role in a given date range.
+		  </aside>
         </section>
 
-        <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
-          <textarea data-template>
-            ## general cohort analysis processing 
-              - For each user
+        <section  data-background-image="img/bg/bg.png" data-background-size="contain">
+          <p data-markdown style="text-align: left;"> ## SCAPE Performance: </p>
+		  <p data-markdown style="text-align: left;"> ## General Cohort Query </p>
+          <img src="img/exp2.jpg"  class="plain" > </img>
+		  <aside class="notes" data-markdown>
+			- Result
+				- Scape is up to three order faster than database approaches, which have been adopted in almost all of our competitors
+            - For each user
                 - check whether it is qualified with respect to the birth sequence, and determine its host cohort 
                 - determine the age for each activity performed thereafter
                 - select activities at each age to measure cohort behavior
                 - and finally update the result for that age
-          </textarea>
+		  </aside>
         </section>
-        <section  data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
-          <p data-markdown> ## SCAPE Performance </p>
-          <div class="left-panel">
-            <p data-markdown>
-              - Scape is up to three order faster than database approaches, which have been adopted in almost all of our competitors
-            </p>
-          </div>
-          <div class="right-panel">
-            <img src="img/exp2.jpg"> </img>
-          </div>
-        </section>
-        <section  data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
-          <p data-markdown> ## SCAPE Performance </p>
-          <div class="left-panel">
-            <p data-markdown>
-              - Processing time is linear with the size of dataset, showing a high scalability
-            </p>
-          </div>
-          <div class="right-panel">
-            <img src="img/exp3.jpg"> </img>
-          </div>
+        <section  data-background-image="img/bg/bg.png" data-background-size="contain">
+          <p data-markdown style="text-align: left;"> ## SCAPE Performance: </p>
+		  <p data-markdown style="text-align: left;"> ## General Cohort Query </p>
+          <img src="img/exp3.jpg"  class="plain"> </img>
+		  <aside class="notes" data-markdown>
+			- Result
+			  - Processing time is linear with the size of dataset, showing a high scalability
+            - For each user
+                - check whether it is qualified with respect to the birth sequence, and determine its host cohort 
+                - determine the age for each activity performed thereafter
+                - select activities at each age to measure cohort behavior
+                - and finally update the result for that age
+		  </aside>
         </section>
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
