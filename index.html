@@ -47,7 +47,7 @@
                   - health care
                   - ...
 			</aside>
-			<div>
+			<div class="plain">
 				<img src="img/online.png" class="plain fragment" data-fragment-index="1" width="30%" > </img>
 				<img src="img/mobile.png" class="plain fragment" data-fragment-index="2" width="40%" > </img>
 				<img src="img/health.jpg" class="plain fragment" data-fragment-index="3" width="20%" > </img>
@@ -57,11 +57,12 @@
             <textarea data-template>
               ## Motivation
               - Two factors affecting user behavior
-                - Aging
-                - Social changes
+                - Aging <!-- .element: class="fragment" data-fragment-index="1" -->
+                - Social changes <!-- .element: class="fragment" data-fragment-index="2" -->
                   - New versions of application
                   - Modification in website layout
             </textarea>
+			
           </section>
           <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
             <textarea data-template>
@@ -76,11 +77,11 @@
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
             ## Concepts 
-              - Birth of users
+              - Birth of users <!-- .element: class="fragment" data-fragment-index="1" -->
                 - Born upon performing the first birth event
-              - Cohort definition
+              - Cohort definition <!-- .element: class="fragment" data-fragment-index="2" -->
                 - A group of users who share common characteristics during the birth
-              - Steps
+              - Steps <!-- .element: class="fragment" data-fragment-index="3" -->
                 - Group users into cohorts
                 - Determine the age for each activity of each user
                 - Compute the aggregation for each (cohort, age) group.
@@ -104,12 +105,12 @@
           <textarea data-template>
             ## SQL-based approach
             - Algorithm
-              - Locate the birth time with respect to the birth event for each user
-              - Find the birth tuples (one join required)
-              - Find the age tuples (one join required)
-              - Compute the cohort size
-              - Compute the aggregated value (one join required)
-            - Disadvantage
+              - Locate the birth time with respect to the birth event for each user <!-- .element: class="fragment" data-fragment-index="1" -->
+              - Find the birth tuples (one join required) <!-- .element: class="fragment" data-fragment-index="2" -->
+              - Find the age tuples (one join required) <!-- .element: class="fragment" data-fragment-index="3" -->
+              - Compute the cohort size <!-- .element: class="fragment" data-fragment-index="4" -->
+              - Compute the aggregated value (one join required) <!-- .element: class="fragment" data-fragment-index="5" -->
+            - Disadvantage <!-- .element: class="fragment" data-fragment-index="6" -->
               - Extremely inefficient (three joins)
               - Lengthy and error-prone
           </textarea>
@@ -127,8 +128,8 @@
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
             ## Motivation
-            - Multiple birth events can characterize cohort better
-            - More ways of measuring cohort behavior are needed
+            - Multiple birth events can characterize cohort better <!-- .element: class="fragment" data-fragment-index="1" -->
+            - More ways of measuring cohort behavior are needed <!-- .element: class="fragment" data-fragment-index="2" -->
           </textarea>
         </section>
         <section  data-markdown data-background-image="img/bg/bg.png" data-background-size="contain" style="text-align: left; ">
@@ -314,6 +315,7 @@
       // - https://github.com/hakimel/reveal.js#configuration
       // - https://github.com/hakimel/reveal.js#dependencies
       Reveal.initialize({
+	    slideNumber: true,
         markdown: {
           smartypants: true
         },
