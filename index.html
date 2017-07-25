@@ -229,7 +229,8 @@
 
             - Shentilium Cohort Analysis Processing Engine
               - Customized storage layout
-              - Query evaluation
+              - Traditional Cohort Analysis processing
+              - General Cohort Analysis processing
           </textarea>
         </section>       
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; ">
@@ -239,7 +240,6 @@
             - Data schema
               - A flat table with each row recording a single user activity
               - Activities of each user are clustered together and sorted by time
-
             - Hierarchical storage
               - Horizontally split into chunks
               - Each chunk is stored in a columnar way
@@ -249,7 +249,7 @@
         </section>
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left; ">
           <textarea data-template>
-            ## Process traditional cohort analysis 
+            ## traditional cohort analysis processing 
             - For each user,
               - Find the birth time
               - Determine the host cohort
@@ -293,7 +293,7 @@
 
         <section  data-markdown data-background-image="img/bg/4.png" data-background-size="contain" style="text-align: left;">
           <textarea data-template>
-            ## Process general cohort analysis 
+            ## general cohort analysis process 
               - For each user
                 - check whether it is qualified with respect to the birth sequence, and determine its host cohort 
                 - determine the age for each activity performed thereafter
